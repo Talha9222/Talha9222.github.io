@@ -3,58 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Portfolio</title>
+  <title>Talha Ahmad | Portfolio</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #121212;
-      color: #f5f5f5;
+      background-color: #0f0f0f;
+      color: #e0e0e0;
       line-height: 1.6;
-      padding: 40px;
     }
     header {
+      background: #1a1a1a;
+      padding: 60px 20px;
       text-align: center;
-      margin-bottom: 40px;
+      box-shadow: 0 0 10px #00ffd5;
     }
     header h1 {
-      font-size: 3rem;
+      font-size: 3.5rem;
       color: #00ffd5;
     }
     header p {
-      font-size: 1.2rem;
-      color: #ccc;
+      font-size: 1.3rem;
+      color: #aaa;
+      margin-top: 10px;
     }
     section {
-      margin-bottom: 60px;
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: auto;
     }
     h2 {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: #00ffd5;
-      border-bottom: 2px solid #00ffd5;
-      padding-bottom: 5px;
-      margin-bottom: 20px;
+      border-left: 4px solid #00ffd5;
+      padding-left: 10px;
+      margin-bottom: 30px;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
     }
     .project {
-      margin-bottom: 20px;
+      background: #1f1f1f;
+      padding: 20px;
+      border-radius: 12px;
+      transition: transform 0.3s;
+      box-shadow: 0 0 8px rgba(0, 255, 213, 0.1);
+    }
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 255, 213, 0.3);
+    }
+    .project h3 {
+      color: #00ffd5;
+      margin-bottom: 10px;
     }
     .project img, .project video {
       width: 100%;
-      max-width: 600px;
-      border: 1px solid #333;
       border-radius: 10px;
+      margin-top: 10px;
     }
     .project a {
       color: #00ffd5;
       text-decoration: none;
     }
     .contact {
-      font-size: 1rem;
+      background: #1a1a1a;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
     }
-    .contact a {
+    .contact p, .contact a {
+      font-size: 1.1rem;
+      color: #ccc;
+      margin: 10px 0;
+    }
+    .contact a:hover {
       color: #00ffd5;
-      text-decoration: none;
     }
   </style>
 </head>
@@ -67,48 +94,52 @@
   <section id="about">
     <h2>About Me</h2>
     <p>
-      I am a passionate game developer and 3D artist with a love for creating immersive digital experiences. From coding interactive WebGL games to designing 3D models in Blender, I enjoy every step of the creative process.
+      I am a passionate game developer and 3D artist dedicated to crafting immersive digital experiences through WebGL-powered games and Blender-based modeling and animation. My strength lies in creative innovation and blending design with interactivity.
     </p>
   </section>
 
   <section id="game-dev">
     <h2>Game Development Projects</h2>
-    <div class="project">
-      <h3>FPS Game</h3>
-      <p><a href="https://your-webgl-game-link.com" target="_blank">Play it here</a></p>
-      <img src="webgl-thumbnail.jpg" alt="WebGL Game Screenshot">
+    <div class="project-grid">
+      <div class="project">
+        <h3>FPS Game</h3>
+        <p><a href="https://your-webgl-game-link.com" target="_blank">Play it here</a></p>
+        <img src="webgl-thumbnail.jpg" alt="WebGL Game Screenshot">
+      </div>
     </div>
   </section>
 
   <section id="blender-projects">
     <h2>Blender Projects</h2>
-    <div class="project">
-      <h3>3D Bird Model</h3>
-      <img src="character-model.jpg" alt="Blender Project Screenshot">
-    </div>
-    <div class="project">
-      <h3>Animation Video</h3>
-      <video controls>
-        <source src="blender-animation.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
-<div class="project">
-      <h3>3D Perfume Bottle Model</h3>
-      <img src="character-model.jpg" alt="Blender Project Screenshot">
-    </div>
-<div class="project">
-      <h3>3D Chess Piece Model</h3>
-      <img src="character-model.jpg" alt="Blender Project Screenshot">
+    <div class="project-grid">
+      <div class="project">
+        <h3>3D Bird Model</h3>
+        <img src="character-model.jpg" alt="Blender Project Screenshot">
+      </div>
+      <div class="project">
+        <h3>Animation Video</h3>
+        <video controls>
+          <source src="blender-animation.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <div class="project">
+        <h3>3D Perfume Bottle Model</h3>
+        <img src="perfume-model.jpg" alt="Perfume Bottle Model">
+      </div>
+      <div class="project">
+        <h3>3D Chess Piece Model</h3>
+        <img src="chess-piece-model.jpg" alt="Chess Piece Model">
+      </div>
     </div>
   </section>
 
   <section id="contact">
     <h2>Contact</h2>
     <div class="contact">
-      <p>Email: <a href="mailto:your.email@example.com">atalha9222@gmail.com</a></p>
-      <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">https://www.linkedin.com/in/talha-ahmad-196279216?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app</a></p>
-      <p>GitHub: <a href="https://github.com/yourusername" target="_blank">Talha9222</a></p>
+      <p>Email: <a href="mailto:atalha9222@gmail.com">atalha9222@gmail.com</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/talha-ahmad-196279216" target="_blank">talha-ahmad-196279216</a></p>
+      <p>GitHub: <a href="https://github.com/Talha9222" target="_blank">Talha9222</a></p>
     </div>
   </section>
 </body>
