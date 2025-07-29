@@ -1,158 +1,51 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Talha Ahmad | Portfolio</title>
-  <link rel="stylesheet" href="css/styles.css" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  <script src="js/script.js" defer></script>
-  <style>
-    body {
-      background-color: #121212;
-      color: #e0e0e0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #1e1e1e;
-      padding: 50px 20px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 255, 213, 0.2);
-    }
-    header h1 {
-      font-size: 3rem;
-      color: #00ffd5;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #cccccc;
-    }
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 50px 20px;
-    }
-    h2 {
-      font-size: 2rem;
-      border-left: 5px solid #00ffd5;
-      padding-left: 15px;
-      margin-bottom: 30px;
-      color: #00ffd5;
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-    }
-    .project {
-      background: #1f1f1f;
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 255, 213, 0.1);
-    }
-    .project img, .project video {
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-    a {
-      color: #00ffd5;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .contact {
-      background: #1e1e1e;
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-    }
-    .contact p {
-      margin: 10px 0;
-    }
-  </style>
-</head>
-<body>
-  <header data-aos="fade-down">
-    <h1>Talha Ahmad</h1>
-    <p>Computer Science Undergraduate | Game Developer | 3D Artist</p>
-  </header>
+<!-- ... your <head> and styles remain unchanged ... -->
 
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>
-      Enthusiastic Computer Science undergraduate with hands-on experience in game development, 3D modeling, and network design. Skilled in Unity, Blender, and Cisco Packet Tracer, with a strong interest in interactive technologies and system simulation.
-    </p>
-  </section>
-
-  <section id="game-dev" data-aos="fade-up">
-    <h2>Game Development Projects</h2>
-    <div class="project-grid">
-      <div class="project" data-aos="zoom-in">
-        <h3>Zombie Assault - FPS Game</h3>
-        <p><a href="https://play.unity.com/en/games/fe525369-545a-49b8-9faa-27d0ac994596/webgl-builds" target="_blank">Play it here</a></p>
-        <img src="Zombie-assault.jpg" alt="Urban Assault Game Screenshot" />
-      </div>
+<section id="game-dev" data-aos="fade-up">
+  <h2>Game Development Projects</h2>
+  <div class="project-grid">
+    <div class="project" data-aos="zoom-in">
+      <h3>Zombie Assault - FPS Game</h3>
+      <p><a href="https://play.unity.com/en/games/fe525369-545a-49b8-9faa-27d0ac994596/webgl-builds" target="_blank">Play it here</a></p>
+      <picture>
+        <source srcset="Zombie-assault.webp" type="image/webp">
+        <img src="Zombie-assault.jpg" alt="Zombie Assault Game Screenshot" loading="lazy" />
+      </picture>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="blender-projects" data-aos="fade-up">
-    <h2>Blender Projects</h2>
-    <div class="project-grid">
-      <div class="project" data-aos="flip-left">
-        <h3>Medieval Scenery Animation</h3>
-        <video controls>
-          <source src="medieval-scenery.mp4" type="video/mp4" />
-        </video>
-      </div>
-      <div class="project" data-aos="flip-left">
-        <h3>3D Bird Model</h3>
-        <img src="Bird_Model.png" alt="Bird Model" />
-      </div>
-      <div class="project" data-aos="flip-left">
-        <h3>Perfume Bottle</h3>
-        <img src="Perfume_Model.png" alt="Perfume Bottle Model" />
-      </div>
-      <div class="project" data-aos="flip-left">
-        <h3>Chess Piece</h3>
-        <img src="Chess_Piece.png" alt="Chess Piece Model" />
-      </div>
+<section id="blender-projects" data-aos="fade-up">
+  <h2>Blender Projects</h2>
+  <div class="project-grid">
+    <div class="project" data-aos="flip-left">
+      <h3>Medieval Scenery Animation</h3>
+      <video controls>
+        <source src="medieval-scenery.mp4" type="video/mp4" />
+      </video>
     </div>
-  </section>
 
-  <section id="chess-animation" data-aos="fade-up">
-    <h2>Chess Piece Animation</h2>
-    <div class="project-grid">
-      <div class="project" data-aos="zoom-in">
-        <h3>Pawn Showcase Animation</h3>
-        <video controls>
-          <source src="chess-animation.mp4" type="video/mp4" />
-        </video>
-      </div>
+    <div class="project" data-aos="flip-left">
+      <h3>3D Bird Model</h3>
+      <picture>
+        <source srcset="Bird_Model.webp" type="image/webp">
+        <img src="Bird_Model.png" alt="Bird Model" loading="lazy" />
+      </picture>
     </div>
-  </section>
 
-  <section id="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <div class="contact">
-      <p>Email: <a href="mailto:atalha9222@gmail.com">atalha9222@gmail.com</a></p>
-      <p>Phone: <a href="tel:+923336971868">+92 333 6971868</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/talha-ahmad-196279216" target="_blank">talha-ahmad-196279216</a></p>
-      <p>GitHub: <a href="https://github.com/Talha9222" target="_blank">Talha9222</a></p>
+    <div class="project" data-aos="flip-left">
+      <h3>Perfume Bottle</h3>
+      <picture>
+        <source srcset="Perfume_Model.webp" type="image/webp">
+        <img src="Perfume_Model.png" alt="Perfume Bottle Model" loading="lazy" />
+      </picture>
     </div>
-  </section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 1000,
-      offset: 100,
-      once: true
-    });
-  </script>
-</body>
-</html>
+    <div class="project" data-aos="flip-left">
+      <h3>Chess Piece</h3>
+      <picture>
+        <source srcset="Chess_Piece.webp" type="image/webp">
+        <img src="Chess_Piece.png" alt="Chess Piece Model" loading="lazy" />
+      </picture>
+    </div>
+  </div>
+</section>
