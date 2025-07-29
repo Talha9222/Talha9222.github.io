@@ -5,25 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Talha Ahmad | Portfolio</title>
   <link rel="stylesheet" href="css/styles.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <script src="js/script.js" defer></script>
 </head>
 <body>
-  <header>
+  <header data-aos="fade-down">
     <h1>Talha Ahmad</h1>
     <p>Computer Science Undergraduate | Game Developer | 3D Artist</p>
   </header>
 
-  <section id="about">
+  <section id="about" data-aos="fade-up">
     <h2>About Me</h2>
     <p>
       Enthusiastic Computer Science undergraduate with hands-on experience in game development, 3D modeling, and network design. Skilled in Unity, Blender, and Cisco Packet Tracer, with a strong interest in interactive technologies and system simulation.
     </p>
   </section>
 
-  <section id="game-dev">
+  <section id="game-dev" data-aos="fade-up">
     <h2>Game Development Projects</h2>
     <div class="project-grid">
-      <div class="project">
+      <div class="project" data-aos="zoom-in">
         <h3>Urban Assault - FPS Game</h3>
         <p><a href="https://play.unity.com/en/games/fe525369-545a-49b8-9faa-27d0ac994596/webgl-builds" target="_blank">Play it here</a></p>
         <img src="images/urban-assault.jpg" alt="Urban Assault Game Screenshot" />
@@ -31,34 +32,34 @@
     </div>
   </section>
 
-  <section id="blender-projects">
+  <section id="blender-projects" data-aos="fade-up">
     <h2>Blender Projects</h2>
     <div class="project-grid">
-      <div class="project">
+      <div class="project" data-aos="flip-left">
         <h3>Medieval Scenery Animation</h3>
         <video controls>
           <source src="video/medieval-scenery.mp4" type="video/mp4" />
         </video>
       </div>
-      <div class="project">
+      <div class="project" data-aos="flip-left">
         <h3>3D Bird Model</h3>
         <img src="images/Bird_Model.png" alt="Bird Model" />
       </div>
-      <div class="project">
+      <div class="project" data-aos="flip-left">
         <h3>Perfume Bottle</h3>
         <img src="images/Perfume_Model.png" alt="Perfume Bottle Model" />
       </div>
-      <div class="project">
+      <div class="project" data-aos="flip-left">
         <h3>Chess Piece</h3>
         <img src="images/Chess_Piece.png" alt="Chess Piece Model" />
       </div>
     </div>
   </section>
 
-  <section id="chess-animation">
+  <section id="chess-animation" data-aos="fade-up">
     <h2>Chess Piece Animation</h2>
     <div class="project-grid">
-      <div class="project">
+      <div class="project" data-aos="zoom-in">
         <h3>Pawn Showcase Animation</h3>
         <video controls>
           <source src="video/chess-animation.mp4" type="video/mp4" />
@@ -67,7 +68,7 @@
     </div>
   </section>
 
-  <section id="contact">
+  <section id="contact" data-aos="fade-up">
     <h2>Contact</h2>
     <div class="contact">
       <p>Email: <a href="mailto:atalha9222@gmail.com">atalha9222@gmail.com</a></p>
@@ -76,5 +77,14 @@
       <p>GitHub: <a href="https://github.com/Talha9222" target="_blank">Talha9222</a></p>
     </div>
   </section>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      offset: 100,
+      once: true
+    });
+  </script>
 </body>
 </html>
