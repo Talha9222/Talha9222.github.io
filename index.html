@@ -9,28 +9,28 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #0f0f0f;
-      color: #e0e0e0;
+      background-color: #0d0d0d;
+      color: #f0f0f0;
       line-height: 1.6;
     }
     header {
-      background: #1a1a1a;
+      background: linear-gradient(135deg, #00ffd5, #0d0d0d);
       padding: 60px 20px;
       text-align: center;
-      box-shadow: 0 0 10px #00ffd5;
+      box-shadow: 0 0 15px rgba(0, 255, 213, 0.5);
     }
     header h1 {
       font-size: 3.5rem;
-      color: #00ffd5;
+      color: #0d0d0d;
     }
     header p {
-      font-size: 1.3rem;
-      color: #aaa;
+      font-size: 1.2rem;
+      color: #111;
       margin-top: 10px;
     }
     section {
       padding: 60px 20px;
-      max-width: 1000px;
+      max-width: 1200px;
       margin: auto;
     }
     h2 {
@@ -46,23 +46,26 @@
       gap: 30px;
     }
     .project {
-      background: #1f1f1f;
+      background: #1a1a1a;
       padding: 20px;
-      border-radius: 12px;
-      transition: transform 0.3s;
-      box-shadow: 0 0 8px rgba(0, 255, 213, 0.1);
+      border-radius: 14px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 255, 213, 0.1);
     }
     .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 20px rgba(0, 255, 213, 0.3);
+      transform: scale(1.02);
+      box-shadow: 0 8px 20px rgba(0, 255, 213, 0.25);
     }
     .project h3 {
       color: #00ffd5;
       margin-bottom: 10px;
     }
+    .project p {
+      color: #ccc;
+    }
     .project img, .project video {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 12px;
       margin-top: 10px;
     }
     .project a {
@@ -70,9 +73,9 @@
       text-decoration: none;
     }
     .contact {
-      background: #1a1a1a;
-      padding: 30px;
-      border-radius: 10px;
+      background: #1f1f1f;
+      padding: 40px;
+      border-radius: 12px;
       text-align: center;
     }
     .contact p, .contact a {
@@ -132,6 +135,20 @@
       <div class="project">
         <h3>Chess Piece</h3>
         <img src="Chess_Piece.png" alt="Chess Piece Model">
+      </div>
+    </div>
+  </section>
+
+  <section id="chess-animation">
+    <h2>Chess Piece Animation</h2>
+    <div class="project-grid">
+      <div class="project">
+        <h3>Pawn Showcase Animation</h3>
+        <p>Animated a realistic chess pawn on a dynamic chessboard environment using Blender and cycles renderer.</p>
+        <video controls>
+          <source src="chess-animation.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
       </div>
     </div>
   </section>
