@@ -4,89 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Talha Ahmad | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #0d0d0d;
-      color: #f0f0f0;
-      line-height: 1.6;
-    }
-    header {
-      background: linear-gradient(135deg, #00ffd5, #0d0d0d);
-      padding: 60px 20px;
-      text-align: center;
-      box-shadow: 0 0 15px rgba(0, 255, 213, 0.5);
-    }
-    header h1 {
-      font-size: 3.5rem;
-      color: #0d0d0d;
-    }
-    header p {
-      font-size: 1.2rem;
-      color: #111;
-      margin-top: 10px;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 2.2rem;
-      color: #00ffd5;
-      border-left: 4px solid #00ffd5;
-      padding-left: 10px;
-      margin-bottom: 30px;
-    }
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-    }
-    .project {
-      background: #1a1a1a;
-      padding: 20px;
-      border-radius: 14px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 10px rgba(0, 255, 213, 0.1);
-    }
-    .project:hover {
-      transform: scale(1.02);
-      box-shadow: 0 8px 20px rgba(0, 255, 213, 0.25);
-    }
-    .project h3 {
-      color: #00ffd5;
-      margin-bottom: 10px;
-    }
-    .project p {
-      color: #ccc;
-    }
-    .project img, .project video {
-      width: 100%;
-      border-radius: 12px;
-      margin-top: 10px;
-    }
-    .project a {
-      color: #00ffd5;
-      text-decoration: none;
-    }
-    .contact {
-      background: #1f1f1f;
-      padding: 40px;
-      border-radius: 12px;
-      text-align: center;
-    }
-    .contact p, .contact a {
-      font-size: 1.1rem;
-      color: #ccc;
-      margin: 10px 0;
-    }
-    .contact a:hover {
-      color: #00ffd5;
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css" />
+  <script src="js/script.js" defer></script>
 </head>
 <body>
   <header>
@@ -106,9 +25,8 @@
     <div class="project-grid">
       <div class="project">
         <h3>Urban Assault - FPS Game</h3>
-        <p>Developed a fully playable 3D FPS in Unity with AI, shooting mechanics, UI, and progression.</p>
         <p><a href="https://play.unity.com/en/games/fe525369-545a-49b8-9faa-27d0ac994596/webgl-builds" target="_blank">Play it here</a></p>
-        <img src="urban-assault.jpg" alt="Urban Assault Game Screenshot">
+        <img src="images/urban-assault.jpg" alt="Urban Assault Game Screenshot" />
       </div>
     </div>
   </section>
@@ -118,23 +36,21 @@
     <div class="project-grid">
       <div class="project">
         <h3>Medieval Scenery Animation</h3>
-        <p>Detailed 3D animated cityscape with modular design and dynamic lighting.</p>
         <video controls>
-          <source src="medieval-scenery.mp4" type="video/mp4">
-          Your browser does not support the video tag.
+          <source src="video/medieval-scenery.mp4" type="video/mp4" />
         </video>
       </div>
       <div class="project">
         <h3>3D Bird Model</h3>
-        <img src="Bird_Model.png" alt="Bird Model">
+        <img src="images/Bird_Model.png" alt="Bird Model" />
       </div>
       <div class="project">
         <h3>Perfume Bottle</h3>
-        <img src="Perfume_Model.png" alt="Perfume Bottle Model">
+        <img src="images/Perfume_Model.png" alt="Perfume Bottle Model" />
       </div>
       <div class="project">
         <h3>Chess Piece</h3>
-        <img src="Chess_Piece.png" alt="Chess Piece Model">
+        <img src="images/Chess_Piece.png" alt="Chess Piece Model" />
       </div>
     </div>
   </section>
@@ -144,32 +60,9 @@
     <div class="project-grid">
       <div class="project">
         <h3>Pawn Showcase Animation</h3>
-        <p>Animated a realistic chess pawn on a dynamic chessboard environment using Blender and cycles renderer.</p>
         <video controls>
-          <source src="chess-animation.mp4" type="video/mp4">
-          Your browser does not support the video tag.
+          <source src="video/chess-animation.mp4" type="video/mp4" />
         </video>
-      </div>
-    </div>
-  </section>
-
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <div class="project-grid">
-      <div class="project">
-        <h3>Unity Game Development</h3>
-        <p>Certification from Game Train</p>
-        <a href="https://drive.google.com/file/d/1f35CbgMJ-Q_wB3TOqRem1k-T7Fba9Lzv/view?usp=sharing" target="_blank">View Certificate</a>
-      </div>
-      <div class="project">
-        <h3>Amazon Web Services</h3>
-        <p>Completed AWS Cloud Foundation Course</p>
-        <a href="https://www.credly.com/badges/25b021c8-c7c0-4323-8c15-68e3310ef27b/public_url" target="_blank">View Certificate</a>
-      </div>
-      <div class="project">
-        <h3>AI for Everyone</h3>
-        <p>Coursera course by Andrew Ng</p>
-        <a href="https://coursera.org/share/ee5121941c3f6440734435317d6ca520" target="_blank">View Certificate</a>
       </div>
     </div>
   </section>
