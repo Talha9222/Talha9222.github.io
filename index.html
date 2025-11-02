@@ -4,100 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Talha Ahmad | Portfolio</title>
+
+  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- AOS -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <!-- Script -->
   <script src="js/script.js" defer></script>
-
-  <style>
-    :root{
-      --bg: #121212;
-      --panel: #1e1e1e;
-      --card: #1f1f1f;
-      --text: #e0e0e0;
-      --muted: #cccccc;
-      --accent: #00ffd5;
-    }
-    * { box-sizing: border-box; }
-
-    body {
-      background-color: var(--bg);
-      color: var(--text);
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-    }
-
-    header {
-      background: var(--panel);
-      padding: 50px 20px;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 255, 213, 0.2);
-    }
-    header h1 {
-      font-size: 3rem;
-      color: var(--accent);
-      margin: 0 0 10px;
-    }
-    header p { font-size: 1.2rem; color: var(--muted); margin: 0; }
-
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 50px 20px;
-    }
-
-    h2 {
-      font-size: 2rem;
-      border-left: 5px solid var(--accent);
-      padding-left: 15px;
-      margin-bottom: 30px;
-      color: var(--accent);
-    }
-
-    /* --- KEY FIX: keep project cards nicely sized --- */
-    .project-grid {
-      display: grid;
-      gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 820px));
-      justify-content: center;        /* center the column tracks */
-    }
-
-    .project {
-      background: var(--card);
-      border-radius: 10px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(0, 255, 213, 0.1);
-    }
-    .project h3 { margin: 0 0 8px; }
-    .project p { margin: 8px 0; }
-
-    /* Media inside cards */
-    .project img,
-    .project video {
-      width: 100%;
-      height: auto;
-      aspect-ratio: 16 / 9;           /* consistent visual height */
-      display: block;
-      border-radius: 10px;
-      margin-top: 10px;
-      object-fit: cover;              /* neat crop if aspect differs */
-    }
-
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    .contact {
-      background: var(--panel);
-      border-radius: 10px;
-      padding: 20px;
-      text-align: center;
-    }
-    .contact p { margin: 10px 0; }
-
-    /* Safety for ultra-small screens */
-    @media (max-width: 340px) {
-      .project-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
   <header data-aos="fade-down">
@@ -121,7 +36,7 @@
     <h2>Work Experience</h2>
     <div class="project-grid">
       <div class="project" data-aos="fade-right">
-        <h3>Intern — <a href="https://airidev.com/" target="_blank">Airidev</a></h3>
+        <h3>Intern — <a href="https://airidev.com/" target="_blank" rel="noopener">Airidev</a></h3>
         <p><strong>September 1, 2025 – Present</strong></p>
         <p>
           Working as an intern at Airidev, contributing to real-world development projects, learning professional workflows, and collaborating with a team to deliver high-quality software solutions.
@@ -138,62 +53,68 @@
       <!-- Zombie Assault -->
       <div class="project" data-aos="zoom-in">
         <h3>Zombie Assault — FPS Game</h3>
-        <p><a href="https://play.unity.com/en/games/fe525369-545a-49b8-9faa-27d0ac994596/webgl-builds" target="_blank">Play it here</a></p>
-        <video autoplay loop muted playsinline preload="metadata" poster="Zombie-Assault.webp">
-          <source src="Zombie-Assault.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <p><a href="https://play.unity.com/en/games/fe525369-545a-49b8-9faa-27d0ac994596/webgl-builds" target="_blank" rel="noopener">Play it here</a></p>
+        <div class="media-box">
+          <video autoplay loop muted playsinline preload="metadata" poster="Zombie-Assault.webp" aria-label="Zombie Assault gameplay">
+            <source src="Zombie-Assault.mp4" type="video/mp4" />
+          </video>
+        </div>
         <p>A first-person shooter built in Unity featuring enemy AI, shooting mechanics, and immersive 3D environments.</p>
       </div>
 
       <!-- HexTap Challenge -->
       <div class="project" data-aos="zoom-in">
         <h3>HexTap Challenge — Gameplay</h3>
-        <video autoplay loop muted playsinline preload="metadata" poster="HexTapChallenge.webp">
-          <source src="HexTapChallenge.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div class="media-box">
+          <video autoplay loop muted playsinline preload="metadata" poster="HexTapChallenge.webp" aria-label="HexTap Challenge gameplay">
+            <source src="HexTapChallenge.mp4" type="video/mp4" />
+          </video>
+        </div>
         <p>A fast-paced tapping puzzle built with Unity, focusing on quick reactions and pattern recognition.</p>
       </div>
 
       <!-- Courier Of Clouds -->
       <div class="project" data-aos="zoom-in">
         <h3>Courier Of Clouds — Gameplay</h3>
-        <video autoplay loop muted playsinline preload="metadata" poster="CourierOfClouds.webp">
-          <source src="CourierOfClouds.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div class="media-box">
+          <video autoplay loop muted playsinline preload="metadata" poster="CourierOfClouds.webp" aria-label="Courier Of Clouds gameplay">
+            <source src="CourierOfClouds.mp4" type="video/mp4" />
+          </video>
+        </div>
         <p>Fly through dynamic skies to deliver packages across floating islands.</p>
       </div>
 
       <!-- Shaadi Dance -->
       <div class="project" data-aos="zoom-in">
         <h3>Shaadi Dance — Gameplay</h3>
-        <video autoplay loop muted playsinline preload="metadata" poster="ShaadiDance.webp">
-          <source src="ShaadiDance.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div class="media-box">
+          <video autoplay loop muted playsinline preload="metadata" poster="ShaadiDance.webp" aria-label="Shaadi Dance gameplay">
+            <source src="ShaadiDance.mp4" type="video/mp4" />
+          </video>
+        </div>
         <p>A lively rhythm game celebrating cultural festivities, built with Unity’s animation and audio systems.</p>
       </div>
 
-      <!-- NEW: Pop It Puzzle (Mobile) -->
+      <!-- Pop It Puzzle (Mobile) -->
       <div class="project" data-aos="zoom-in">
         <h3>Pop It Puzzle — Mobile</h3>
         <p><em>Casual puzzle built in Unity for Android</em></p>
-        <video autoplay loop muted playsinline preload="metadata" poster="PopItPuzzle.webp">
-          <source src="PopItPuzzle.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div class="media-box">
+          <video autoplay loop muted playsinline preload="metadata" poster="PopItPuzzle.webp" aria-label="Pop It Puzzle gameplay">
+            <source src="PopItPuzzle.mp4" type="video/mp4" />
+          </video>
+        </div>
         <p>A satisfying “pop-it” style puzzle designed for touch—snappy feedback and quick sessions ideal for mobile.</p>
       </div>
 
-      <!-- NEW: HexTap Challenge — Test Ads Integration -->
+      <!-- HexTap Challenge — Test Ads Integration -->
       <div class="project" data-aos="zoom-in">
         <h3>HexTap Challenge — Test Ads Integration</h3>
-        <video autoplay loop muted playsinline preload="metadata" poster="HexTapChallenge-Ads.webp">
-          <source src="HexTapChallenge-Ads.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div class="media-box">
+          <video autoplay loop muted playsinline preload="metadata" poster="HexTapChallenge-Ads.webp" aria-label="HexTap Challenge with test ads">
+            <source src="HexTapChallenge-Ads.mp4" type="video/mp4" />
+          </video>
+        </div>
         <p>Demonstrates test ads implementation: banner, interstitial, and rewarded placements with test mode and load/show callbacks.</p>
       </div>
 
@@ -206,31 +127,38 @@
     <div class="project-grid">
       <div class="project" data-aos="flip-left">
         <h3>Medieval Scenery Animation</h3>
-        <video controls muted preload="metadata">
-          <source src="medival-scenery.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div class="media-box">
+          <video controls muted preload="metadata" aria-label="Medieval scenery animation">
+            <source src="medival-scenery.mp4" type="video/mp4" />
+          </video>
+        </div>
       </div>
       <div class="project" data-aos="flip-left">
         <h3>3D Bird Model</h3>
-        <picture>
-          <source srcset="Bird_Model.webp" type="image/webp" />
-          <img src="Bird_Model.webp" alt="Bird Model" loading="lazy" />
-        </picture>
+        <div class="media-box">
+          <picture>
+            <source srcset="Bird_Model.webp" type="image/webp" />
+            <img src="Bird_Model.webp" alt="Bird Model" loading="lazy" />
+          </picture>
+        </div>
       </div>
       <div class="project" data-aos="flip-left">
         <h3>Perfume Bottle</h3>
-        <picture>
-          <source srcset="Perfume_Model.webp" type="image/webp" />
-          <img src="Perfume_Model.webp" alt="Perfume Bottle Model" loading="lazy" />
-        </picture>
+        <div class="media-box">
+          <picture>
+            <source srcset="Perfume_Model.webp" type="image/webp" />
+            <img src="Perfume_Model.webp" alt="Perfume Bottle Model" loading="lazy" />
+          </picture>
+        </div>
       </div>
       <div class="project" data-aos="flip-left">
         <h3>Chess Piece</h3>
-        <picture>
-          <source srcset="Chess_Piece.webp" type="image/webp" />
-          <img src="Chess_Piece.webp" alt="Chess Piece Model" loading="lazy" />
-        </picture>
+        <div class="media-box">
+          <picture>
+            <source srcset="Chess_Piece.webp" type="image/webp" />
+            <img src="Chess_Piece.webp" alt="Chess Piece Model" loading="lazy" />
+          </picture>
+        </div>
       </div>
     </div>
   </section>
@@ -241,10 +169,11 @@
     <div class="project-grid">
       <div class="project" data-aos="zoom-in">
         <h3>Pawn Showcase Animation</h3>
-        <video controls muted preload="metadata">
-          <source src="chess-animation.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div class="media-box">
+          <video controls muted preload="metadata" aria-label="Chess pawn showcase">
+            <source src="chess-animation.mp4" type="video/mp4" />
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -255,10 +184,11 @@
     <div class="project-grid">
       <div class="project" data-aos="zoom-in">
         <h3>Headphone Showcase Animation</h3>
-        <video controls muted preload="metadata">
-          <source src="Headphones Animation.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
+        <div class="media-box">
+          <video controls muted preload="metadata" aria-label="Headphones showcase">
+            <source src="Headphones Animation.mp4" type="video/mp4" />
+          </video>
+        </div>
       </div>
     </div>
   </section>
@@ -269,15 +199,12 @@
     <div class="contact">
       <p>Email: <a href="mailto:atalha9222@gmail.com">atalha9222@gmail.com</a></p>
       <p>Phone: <a href="tel:+923336971868">+92 333 6971868</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/talha---ahmad/" target="_blank">Talha Ahmad</a></p>
-      <p>GitHub: <a href="https://github.com/Talha9222" target="_blank">Talha9222</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/talha---ahmad/" target="_blank" rel="noopener">Talha Ahmad</a></p>
+      <p>GitHub: <a href="https://github.com/Talha9222" target="_blank" rel="noopener">Talha9222</a></p>
     </div>
   </section>
 
+  <!-- AOS script -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({ duration: 1000, offset: 100, once: true });
-  </script>
 </body>
 </html>
-
