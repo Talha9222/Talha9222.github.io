@@ -1,4 +1,4 @@
-// Smooth Scroll for in-page anchors
+// Smooth scroll for in-page anchors
 document.addEventListener("click", (e) => {
   const a = e.target.closest('a[href^="#"]');
   if (!a) return;
@@ -9,7 +9,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Initialize AOS
+// Initialize AOS when available
 document.addEventListener("DOMContentLoaded", () => {
   if (window.AOS) {
     AOS.init({ duration: 1000, offset: 100, once: true });
@@ -27,7 +27,7 @@ document.addEventListener("click", (e) => {
   }
 });
 
-// Optional: pause autoplaying videos when off-screen (saves CPU)
+// Pause autoplaying videos when off-screen (saves CPU)
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(({ isIntersecting, target }) => {
     const vid = target;
