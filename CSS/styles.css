@@ -6,12 +6,12 @@
   --text: #e0e0e0;
   --muted: #cccccc;
   --accent: #00ffd5;
-  --card-max: 380px; /* tweak this to make cards wider/narrower */
+  --card-max: 380px; /* tweak to 360–420px if you want */
 }
 
-* { box-sizing: border-box; margin: 0; padding: 0; }
+*{ box-sizing: border-box; margin: 0; padding: 0; }
 
-body {
+body{
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: var(--bg);
   color: var(--text);
@@ -19,18 +19,18 @@ body {
 }
 
 /* HEADER */
-header {
+header{
   background: var(--panel);
   padding: 60px 20px;
   text-align: center;
   box-shadow: 0 4px 10px rgba(0, 255, 213, 0.2);
 }
-header h1 { font-size: 3rem; color: var(--accent); margin-bottom: 10px; }
-header p { font-size: 1.2rem; color: var(--muted); }
+header h1{ font-size: 3rem; color: var(--accent); margin-bottom: 10px; }
+header p{ font-size: 1.2rem; color: var(--muted); }
 
 /* SECTION */
-section { max-width: 1000px; margin: auto; padding: 50px 20px; }
-h2 {
+section{ max-width: 1000px; margin: auto; padding: 50px 20px; }
+h2{
   font-size: 2rem;
   border-left: 5px solid var(--accent);
   padding-left: 15px;
@@ -56,7 +56,7 @@ h2 {
 .project h3{ margin: 0 0 8px; }
 .project p{ margin: 8px 0; }
 
-/* MEDIA — show full frame inside small card */
+/* MEDIA — show full frame inside small card (no cropping) */
 .media-box{
   position: relative;
   width: 100%;
@@ -71,13 +71,14 @@ h2 {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;  /* NO CROPPING */
+  object-fit: contain; /* full video/image visible */
   display: block;
+  border-radius: 10px;
 }
 
 /* LINKS */
-a { color: var(--accent); text-decoration: none; }
-a:hover { text-decoration: underline; }
+a{ color: var(--accent); text-decoration: none; }
+a:hover{ text-decoration: underline; }
 
 /* CONTACT */
 .contact{
