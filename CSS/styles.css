@@ -6,7 +6,7 @@
   --text: #e0e0e0;
   --muted: #cccccc;
   --accent: #00ffd5;
-  --card-max: 380px; /* tweak to 360–420px if you want */
+  --card-max: 380px; /* tweak to 360-420px if you want */
 }
 
 *{ box-sizing: border-box; margin: 0; padding: 0; }
@@ -39,11 +39,18 @@ h2{
 }
 
 /* GRID — keeps cards from getting huge */
+/* Fallback without CSS variables */
 .project-grid{
   display: grid;
   gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, var(--card-max)));
-  justify-content: center; /* center tracks */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 380px));
+  justify-content: center;
+}
+/* Prefer CSS variable when supported (overrides previous rule) */
+@supports (--a: 0) {
+  .project-grid{
+    grid-template-columns: repeat(auto-fit, minmax(280px, var(--card-max)));
+  }
 }
 
 /* CARD */
@@ -57,18 +64,34 @@ h2{
 .project p{ margin: 8px 0; }
 
 /* MEDIA — show full frame inside small card (no cropping) */
+/* Fallback: intrinsic ratio box via ::before */
 .media-box{
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
   background: #000;
   border-radius: 10px;
   overflow: hidden;
 }
+.media-box::before{
+  content: "";
+  display: block;
+  padding-top: 56.25%; /* 16:9 fallback ratio */
+}
+/* Modern: use aspect-ratio when available, remove the ::before spacer */
+@supports (aspect-ratio: 1 / 1) {
+  .media-box{
+    aspect-ratio: 16 / 9;
+  }
+  .media-box::before{
+    display: none;
+    padding-top: 0;
+  }
+}
+
 .media-box > video,
 .media-box > img{
   position: absolute;
-  inset: 0;
+  top: 0; right: 0; bottom: 0; left: 0; /* instead of inset: 0 */
   width: 100%;
   height: 100%;
   object-fit: contain; /* full video/image visible */
