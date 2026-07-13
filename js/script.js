@@ -140,6 +140,65 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const safePlay = (v) => v.play().catch(() => {});
 
+  /* ---------- Poster replacement: self-generated first frame ----------
+     No .webp posters. Instead each video seeks to ~0.1s so it paints a real
+     frame while paused. A shimmer covers the media until that frame is ready,
+     so a card can never sit as an empty black box. */
+  const markReady = (video) => {
+    video.closest(".card__media")?.classList.add("is-ready");
+  };
+
+  /* preload="metadata" often isn't enough data to paint a frame. Upgrade a
+     video to full preload only once it's near the viewport — so we get real
+     thumbnails without downloading all 12 files on page load. */
+  const hydrate = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(({ isIntersecting, target }) => {
+        if (!isIntersecting) return;
+        hydrate.unobserve(target);
+        if (target.preload !== "auto") {
+          target.preload = "auto";
+          target.load();
+        }
+      });
+    },
+    { rootMargin: "300px 0px" }
+  );
+  cardVideos.forEach((v) => hydrate.observe(v));
+
+  cardVideos.forEach((video) => {
+    // Nudge off frame 0 — many encodes render black at exactly 0.
+    const seekToFirstFrame = () => {
+      if (video.currentTime === 0 && video.duration > 0.2) {
+        try { video.currentTime = 0.1; } catch (_) {}
+      }
+    };
+
+    if (video.readyState >= 2) {
+      seekToFirstFrame();
+      markReady(video);
+    } else {
+      video.addEventListener("loadeddata", () => {
+        seekToFirstFrame();
+        markReady(video);
+      }, { once: true });
+    }
+
+    // Seeking to a frame counts as ready too.
+    video.addEventListener("seeked", () => markReady(video), { once: true });
+
+    // If a video fails to load entirely, drop the shimmer rather than
+    // leaving it pulsing forever.
+    video.addEventListener("error", () => markReady(video), { once: true });
+  });
+
+  // Images (stills) have no shimmer wrapper, but art cards do.
+  document.querySelectorAll(".card__media img").forEach((img) => {
+    const done = () => img.closest(".card__media")?.classList.add("is-ready");
+    img.complete ? done() : img.addEventListener("load", done, { once: true });
+    img.addEventListener("error", done, { once: true });
+  });
+
   if (isTouch) {
     const vidObserver = new IntersectionObserver(
       (entries) => {
@@ -157,7 +216,8 @@ document.addEventListener("DOMContentLoaded", () => {
       card.addEventListener("mouseenter", () => safePlay(video));
       card.addEventListener("mouseleave", () => {
         video.pause();
-        video.currentTime = 0;
+        // Rewind to the painted first frame, not 0 (which can render black).
+        try { video.currentTime = 0.1; } catch (_) {}
       });
     });
   }
