@@ -3,227 +3,443 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Talha Ahmad | Portfolio</title>
+  <title>Talha Ahmad — Game Developer &amp; 3D Artist</title>
+  <meta name="description" content="Portfolio of Talha Ahmad — Computer Science graduate building games in Unity, 3D art in Blender, and real systems that ship." />
+
+  <meta property="og:title" content="Talha Ahmad — Game Developer & 3D Artist" />
+  <meta property="og:description" content="Unity games, Blender art, and shipped software. Portfolio of Talha Ahmad." />
+  <meta property="og:type" content="website" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="./CSS/styles.css" />
-
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-
   <script src="./js/script.js" defer></script>
 </head>
 <body>
-  <header data-aos="fade-down">
-    <h1>Talha Ahmad</h1>
-    <p>Computer Science Undergraduate | Game Developer | 3D Artist</p>
-  </header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <section id="about" data-aos="fade-up">
-    <h2>About Me</h2>
-    <p>
-      Enthusiastic Computer Science undergraduate with hands-on experience in game development, 3D modeling, and network design. Skilled in Unity, Blender, and Cisco Packet Tracer, with a strong interest in interactive technologies and system simulation.
-    </p>
-    <p>
-      <strong>Currently working as an Intern at Airidev</strong> (started September 1, 2025), where I’m gaining practical experience in a professional development environment and contributing to real-world projects.
-    </p>
-  </section>
+  <!-- ================= NAV ================= -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__brand" href="#top">
+        <span class="nav__mark">TA</span>
+        <span class="nav__name">Talha Ahmad</span>
+      </a>
 
-  <section id="experience" data-aos="fade-up">
-    <h2>Work Experience</h2>
-    <div class="project-grid">
-      
-      <div class="project" data-aos="fade-right">
-        <h3>Intern — <a href="https://airidev.com/" target="_blank" rel="noopener">Airidev</a></h3>
-        <p><strong>September 1, 2025 – Present</strong></p>
-        <p>
-          Working as an intern at Airidev, contributing to real-world development projects, learning professional workflows, and collaborating with a team to deliver high-quality software solutions.
+      <ul class="nav__links" id="navLinks">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#games">Games</a></li>
+        <li><a href="#art">3D Art</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav__actions">
+        <a class="btn btn--ghost" href="https://github.com/Talha9222" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn--solid" href="#contact">Hire me</a>
+      </div>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav__progress" id="navProgress"></div>
+  </nav>
+
+  <main id="main">
+    <!-- ================= HERO ================= -->
+    <header class="hero" id="top">
+      <div class="hero__glow" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <p class="eyebrow reveal">
+          <span class="dot"></span> Available for game dev &amp; software roles
+        </p>
+
+        <h1 class="hero__title reveal" data-delay="1">
+          I build <span class="grad">games</span> that feel good<br />
+          and <span class="grad grad--warm">systems</span> that hold up.
+        </h1>
+
+        <p class="hero__lede reveal" data-delay="2">
+          Computer Science graduate working at the seam between play and engineering — Unity gameplay,
+          Blender art, and backend that survives contact with real users. Currently interning at
+          <a href="https://airidev.com/" target="_blank" rel="noopener">Airidev</a>.
+        </p>
+
+        <div class="hero__cta reveal" data-delay="3">
+          <a class="btn btn--solid btn--lg" href="#games">See the games</a>
+          <a class="btn btn--ghost btn--lg" href="mailto:atalha9222@gmail.com">Email me</a>
+        </div>
+
+        <dl class="stats reveal" data-delay="4">
+          <div class="stat">
+            <dt>Games shipped &amp; prototyped</dt>
+            <dd><span class="count" data-to="9">0</span></dd>
+          </div>
+          <div class="stat">
+            <dt>Engine of choice</dt>
+            <dd class="stat--text">Unity 6</dd>
+          </div>
+          <div class="stat">
+            <dt>Currently</dt>
+            <dd class="stat--text">Intern @ Airidev</dd>
+          </div>
+        </dl>
+      </div>
+    </header>
+
+    <!-- ================= WORK ================= -->
+    <section class="section" id="work">
+      <div class="section__head reveal">
+        <span class="section__label">01 — Experience</span>
+        <h2 class="section__title">Where I've been working</h2>
+      </div>
+
+      <ol class="timeline">
+        <li class="timeline__item reveal">
+          <span class="timeline__when">Sep 2025 — Present</span>
+          <div class="timeline__body">
+            <h3>Intern · <a href="https://airidev.com/" target="_blank" rel="noopener">Airidev</a></h3>
+            <p>
+              Shipping against real deadlines in a production codebase. Picked up the parts of the job
+              school doesn't teach: code review, handoffs, and building things other people have to maintain.
+            </p>
+            <ul class="tags">
+              <li>Unity</li><li>Team workflow</li><li>Production code</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline__item reveal">
+          <span class="timeline__when">Aug — Sep 2025</span>
+          <div class="timeline__body">
+            <h3>Participant · Rookie Game Jam, Games Collective</h3>
+            <p>
+              Built a game from a blank project to a playable build inside the jam window. Rapid prototyping,
+              scope control, and deciding fast which ideas to cut.
+            </p>
+            <ul class="tags">
+              <li>Rapid prototyping</li><li>Game design</li><li>Collaboration</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ================= GAMES ================= -->
+    <section class="section" id="games">
+      <div class="section__head reveal">
+        <span class="section__label">02 — Game development</span>
+        <h2 class="section__title">Things I made in Unity</h2>
+        <p class="section__lede">
+          Nine projects, from a first-person shooter to a merge-combat card game. Hover a card to preview;
+          click to open it full screen.
         </p>
       </div>
 
-      <div class="project" data-aos="fade-left">
-        <h3>Participant — Games Collective</h3>
-        <p><strong>August 1, 2025 – September 30, 2025</strong></p>
-        <p>
-          Participated in the Rookie Game Jam organized by Games Collective. Collaborated on game design and development within a set timeframe, enhancing skills in rapid prototyping, teamwork, and creative problem-solving.
+      <div class="filters reveal" role="tablist" aria-label="Filter games">
+        <button class="chip is-active" role="tab" aria-selected="true" data-filter="all">All</button>
+        <button class="chip" role="tab" aria-selected="false" data-filter="puzzle">Puzzle</button>
+        <button class="chip" role="tab" aria-selected="false" data-filter="action">Action</button>
+        <button class="chip" role="tab" aria-selected="false" data-filter="mobile">Mobile</button>
+        <button class="chip" role="tab" aria-selected="false" data-filter="systems">Ads &amp; systems</button>
+      </div>
+
+      <div class="grid" id="gameGrid">
+
+        <article class="card reveal" data-tags="action" data-media="Zombie-Assault.mp4">
+          <div class="card__media">
+            <video loop muted playsinline preload="metadata" poster="Zombie-Assault.webp" aria-label="Zombie Assault gameplay">
+              <source src="Zombie-Assault.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open Zombie Assault full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+            <span class="card__badge">FPS</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Zombie Assault</h3>
+            <p class="card__text">First-person shooter with enemy AI, weapon feel, and a 3D environment built to be moved through, not just looked at.</p>
+            <a class="card__link" href="https://play.unity.com/en/games/fe525369-545a-49b8-9faa-27d0ac994596/webgl-builds" target="_blank" rel="noopener">Play in browser <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+
+        <article class="card reveal" data-tags="puzzle mobile" data-media="HexTapChallenge.mp4">
+          <div class="card__media">
+            <video loop muted playsinline preload="metadata" poster="HexTapChallenge.webp" aria-label="HexTap Challenge gameplay">
+              <source src="HexTapChallenge.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open HexTap Challenge full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+            <span class="card__badge">Puzzle</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">HexTap Challenge</h3>
+            <p class="card__text">Fast tapping puzzle built around pattern recognition and reaction time. Tuned so the difficulty curve punishes hesitation, not the player.</p>
+          </div>
+        </article>
+
+        <article class="card reveal" data-tags="action" data-media="CourierOfClouds.mp4">
+          <div class="card__media">
+            <video loop muted playsinline preload="metadata" poster="CourierOfClouds.webp" aria-label="Courier Of Clouds gameplay">
+              <source src="CourierOfClouds.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open Courier Of Clouds full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+            <span class="card__badge">Flight</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Courier of Clouds</h3>
+            <p class="card__text">Delivery runs across floating islands. The whole design rests on flight feel — momentum, drift, and the pull of a landing you almost missed.</p>
+          </div>
+        </article>
+
+        <article class="card reveal" data-tags="action" data-media="ShaadiDance.mp4">
+          <div class="card__media">
+            <video loop muted playsinline preload="metadata" poster="ShaadiDance.webp" aria-label="Shaadi Dance gameplay">
+              <source src="ShaadiDance.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open Shaadi Dance full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+            <span class="card__badge">Rhythm</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Shaadi Dance</h3>
+            <p class="card__text">A rhythm game rooted in desi wedding culture. Built on Unity's animation and audio systems, with beat timing that has to land or the joke doesn't.</p>
+          </div>
+        </article>
+
+        <article class="card reveal" data-tags="puzzle mobile" data-media="PopItPuzzle.mp4">
+          <div class="card__media">
+            <video loop muted playsinline preload="metadata" poster="PopItPuzzle.webp" aria-label="Pop It Puzzle gameplay">
+              <source src="PopItPuzzle.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open Pop It Puzzle full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+            <span class="card__badge">Android</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Pop It Puzzle</h3>
+            <p class="card__text">Casual pop-it puzzle for Android. Short sessions, snappy haptic-style feedback, and a touch target size that actually respects thumbs.</p>
+          </div>
+        </article>
+
+        <article class="card reveal" data-tags="puzzle" data-media="Snake_Shift.mp4">
+          <div class="card__media">
+            <video loop muted playsinline preload="metadata" poster="Snake_Shift.webp" aria-label="Snake Shift gameplay">
+              <source src="Snake_Shift.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open Snake Shift full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+            <span class="card__badge">Puzzle</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Snake Shift Horizon</h3>
+            <p class="card__text">Snake, but the grid is the puzzle. Collect apples while the board shifts under you — each level is a small spatial problem with one clean solution.</p>
+          </div>
+        </article>
+
+        <article class="card reveal" data-tags="action" data-media="UltimateMergeCombat.mp4">
+          <div class="card__media">
+            <video loop muted playsinline preload="metadata" poster="UltimateMergeCombat.webp" aria-label="Ultimate Merge Combat gameplay">
+              <source src="UltimateMergeCombat.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open Ultimate Merge Combat full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+            <span class="card__badge">Merge</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Ultimate Merge Combat</h3>
+            <p class="card__text">Merge cards to build an army, then send it to fight. The tension sits in the merge economy — spend now for tempo, or hold for a stronger board.</p>
+          </div>
+        </article>
+
+        <article class="card reveal" data-tags="systems" data-media="HexTapChallenge-Ads.mp4">
+          <div class="card__media">
+            <video loop muted playsinline preload="metadata" poster="HexTapChallenge-Ads.webp" aria-label="HexTap Challenge ads integration">
+              <source src="HexTapChallenge-Ads.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open HexTap ads integration full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+            <span class="card__badge">AdMob</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">HexTap — Ads integration</h3>
+            <p class="card__text">Banner, interstitial, and rewarded placements wired end to end, with test mode and full load/show callback handling so failures surface instead of silently eating a frame.</p>
+          </div>
+        </article>
+
+        <article class="card reveal" data-tags="systems" data-media="Sink_Em_All.mp4">
+          <div class="card__media">
+            <video loop muted playsinline preload="metadata" poster="SinkEmAll-Ads.webp" aria-label="Sink em All ads integration">
+              <source src="Sink_Em_All.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open Sink em All full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+            <span class="card__badge">AdMob</span>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Sink 'em All — Ads integration</h3>
+            <p class="card__text">Second pass at the monetization stack: the same banner / interstitial / rewarded flow, hardened after debugging real Android build failures.</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ================= 3D ART ================= -->
+    <section class="section" id="art">
+      <div class="section__head reveal">
+        <span class="section__label">03 — Blender</span>
+        <h2 class="section__title">Modeling, lighting, animation</h2>
+        <p class="section__lede">Product renders and scene work. Everything below is modeled, shaded, and lit from scratch.</p>
+      </div>
+
+      <div class="grid grid--art">
+
+        <article class="card card--art reveal" data-media="medival-scenery.mp4">
+          <div class="card__media card__media--tall">
+            <video loop muted playsinline preload="metadata" aria-label="Medieval scenery animation">
+              <source src="medival-scenery.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open medieval scenery full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Medieval Scenery</h3>
+            <p class="card__text">Animated environment flythrough — modeling, materials, and a camera move that reveals the scene in one shot.</p>
+          </div>
+        </article>
+
+        <article class="card card--art reveal" data-media="chess-animation.mp4">
+          <div class="card__media card__media--tall">
+            <video loop muted playsinline preload="metadata" aria-label="Chess pawn showcase animation">
+              <source src="chess-animation.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open chess animation full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Chess Pawn — Showcase</h3>
+            <p class="card__text">Turntable animation with studio lighting. The whole point is the specular roll across the bevels.</p>
+          </div>
+        </article>
+
+        <article class="card card--art reveal" data-media="Headphones Animation.mp4">
+          <div class="card__media card__media--tall">
+            <video loop muted playsinline preload="metadata" aria-label="Headphones showcase animation">
+              <source src="Headphones Animation.mp4" type="video/mp4" />
+            </video>
+            <button class="card__expand" aria-label="Open headphones animation full screen">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/></svg>
+            </button>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Headphones — Product Render</h3>
+            <p class="card__text">Product-ad style animation. Soft-box lighting, subtle depth of field, and materials that read as matte plastic and brushed metal.</p>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="stills">
+        <figure class="still reveal" data-media="Bird_Model.png">
+          <img src="Bird_Model.png" alt="3D bird model rendered in Blender" loading="lazy" />
+          <figcaption>Bird — low-poly study</figcaption>
+        </figure>
+        <figure class="still reveal" data-media="Perfume_Model.png">
+          <img src="Perfume_Model.png" alt="Perfume bottle model rendered in Blender" loading="lazy" />
+          <figcaption>Perfume bottle — glass &amp; caustics</figcaption>
+        </figure>
+        <figure class="still reveal" data-media="Chess_Piece.png">
+          <img src="Chess_Piece.png" alt="Chess piece model rendered in Blender" loading="lazy" />
+          <figcaption>Chess piece — hard-surface</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ================= SKILLS ================= -->
+    <section class="section" id="skills">
+      <div class="section__head reveal">
+        <span class="section__label">04 — Toolkit</span>
+        <h2 class="section__title">What I work with</h2>
+      </div>
+
+      <div class="skills reveal">
+        <div class="skillset">
+          <h3>Game development</h3>
+          <ul class="tags tags--lg">
+            <li>Unity 6</li><li>C#</li><li>Gameplay systems</li><li>AdMob</li><li>iOS / Android publishing</li>
+          </ul>
+        </div>
+        <div class="skillset">
+          <h3>3D &amp; visual</h3>
+          <ul class="tags tags--lg">
+            <li>Blender</li><li>Modeling</li><li>Lighting</li><li>Animation</li><li>Shading</li>
+          </ul>
+        </div>
+        <div class="skillset">
+          <h3>Engineering</h3>
+          <ul class="tags tags--lg">
+            <li>Python</li><li>Node.js</li><li>Firebase</li><li>Hadoop / Spark</li><li>Cisco Packet Tracer</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CONTACT ================= -->
+    <section class="section section--contact" id="contact">
+      <div class="contact reveal">
+        <span class="section__label">05 — Contact</span>
+        <h2 class="contact__title">Let's build something.</h2>
+        <p class="contact__lede">
+          Open to game development, software engineering, and 3D work. Fastest way to reach me is email —
+          I answer within a day.
         </p>
-      </div>
 
-    </div>
-  </section>
-
-  <section id="game-dev" data-aos="fade-up">
-    <h2>Game Development Projects</h2>
-    <div class="project-grid">
-
-      <div class="project" data-aos="zoom-in">
-        <h3>Zombie Assault — FPS Game</h3>
-        <p><a href="https://play.unity.com/en/games/fe525369-545a-49b8-9faa-27d0ac994596/webgl-builds" target="_blank" rel="noopener">Play it here</a></p>
-        <div class="media-box">
-          <video autoplay loop muted playsinline preload="metadata" poster="Zombie-Assault.webp" aria-label="Zombie Assault gameplay">
-            <source src="Zombie-Assault.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <p>A first-person shooter built in Unity featuring enemy AI, shooting mechanics, and immersive 3D environments.</p>
-      </div>
-
-      <div class="project" data-aos="zoom-in">
-        <h3>HexTap Challenge — Gameplay</h3>
-        <div class="media-box">
-          <video autoplay loop muted playsinline preload="metadata" poster="HexTapChallenge.webp" aria-label="HexTap Challenge gameplay">
-            <source src="HexTapChallenge.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <p>A fast-paced tapping puzzle built with Unity, focusing on quick reactions and pattern recognition.</p>
-      </div>
-
-      <div class="project" data-aos="zoom-in">
-        <h3>Courier Of Clouds — Gameplay</h3>
-        <div class="media-box">
-          <video autoplay loop muted playsinline preload="metadata" poster="CourierOfClouds.webp" aria-label="Courier Of Clouds gameplay">
-            <source src="CourierOfClouds.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <p>Fly through dynamic skies to deliver packages across floating islands.</p>
-      </div>
-
-      <div class="project" data-aos="zoom-in">
-        <h3>Shaadi Dance — Gameplay</h3>
-        <div class="media-box">
-          <video autoplay loop muted playsinline preload="metadata" poster="ShaadiDance.webp" aria-label="Shaadi Dance gameplay">
-            <source src="ShaadiDance.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <p>A lively rhythm game celebrating cultural festivities, built with Unity’s animation and audio systems.</p>
-      </div>
-
-      <div class="project" data-aos="zoom-in">
-        <h3>Pop It Puzzle — Mobile</h3>
-        <p><em>Casual puzzle built in Unity for Android</em></p>
-        <div class="media-box">
-          <video autoplay loop muted playsinline preload="metadata" poster="PopItPuzzle.webp" aria-label="Pop It Puzzle gameplay">
-            <source src="PopItPuzzle.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <p>A satisfying “pop-it” style puzzle designed for touch—snappy feedback and quick sessions ideal for mobile.</p>
-      </div>
-
-      <div class="project" data-aos="zoom-in">
-        <h3>HexTap Challenge — Test Ads Integration</h3>
-        <div class="media-box">
-          <video autoplay loop muted playsinline preload="metadata" poster="HexTapChallenge-Ads.webp" aria-label="HexTap Challenge with test ads">
-            <source src="HexTapChallenge-Ads.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <p>Demonstrates test ads implementation: banner, interstitial, and rewarded placements with test mode and load/show callbacks.</p>
-      </div>
-
-            <div class="project" data-aos="zoom-in">
-        <h3>Snake Shift Horizon Puzzle Game</h3>
-        <div class="media-box">
-          <video autoplay loop muted playsinline preload="metadata" poster="Snake_Shift.webp" aria-label="Snake Shift">
-            <source src="Snake_Shift.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <p>Created a fun snake game in which you have to solve puzzles and collect appls fun to play.</p>
-      </div>
-
-            <div class="project" data-aos="zoom-in">
-        <h3>Sink em All — Test Ads Integration</h3>
-        <div class="media-box">
-          <video autoplay loop muted playsinline preload="metadata" poster="SinkEmAll-Ads.webp" aria-label="Sink em All with test ads">
-            <source src="Sink_Em_All.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <p>Demonstrates test ads implementation: banner, interstitial, and rewarded placements with test mode and load/show callbacks.</p>
-      </div>
-      <div class="project" data-aos="zoom-in">
-        <h3>Ultimate Merge Combat</h3>
-        <div class="media-box">
-          <video autoplay loop muted playsinline preload="metadata" poster="UltimateMergeCombat.webp" aria-label="Sink em All with test ads">
-            <source src="UltimateMergeCombat.mp4" type="video/mp4" />
-          </video>
-        </div>
-        <p>A fun to play Merging cards game where you merge to make an army and then you fight with those cards with the enemy.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="blender-projects" data-aos="fade-up">
-    <h2>Blender Projects</h2>
-    <div class="project-grid">
-      
-      <div class="project" data-aos="flip-left">
-        <h3>Medieval Scenery Animation</h3>
-        <div class="media-box">
-          <video controls muted preload="metadata" aria-label="Medieval scenery animation">
-            <source src="medival-scenery.mp4" type="video/mp4" />
-          </video>
+        <div class="contact__grid">
+          <a class="contact__item" href="mailto:atalha9222@gmail.com">
+            <span class="contact__k">Email</span>
+            <span class="contact__v">atalha9222@gmail.com</span>
+          </a>
+          <a class="contact__item" href="tel:+923336971868">
+            <span class="contact__k">Phone</span>
+            <span class="contact__v">+92 333 6971868</span>
+          </a>
+          <a class="contact__item" href="https://www.linkedin.com/in/talha---ahmad/" target="_blank" rel="noopener">
+            <span class="contact__k">LinkedIn</span>
+            <span class="contact__v">talha---ahmad <span aria-hidden="true">↗</span></span>
+          </a>
+          <a class="contact__item" href="https://github.com/Talha9222" target="_blank" rel="noopener">
+            <span class="contact__k">GitHub</span>
+            <span class="contact__v">Talha9222 <span aria-hidden="true">↗</span></span>
+          </a>
         </div>
       </div>
+    </section>
+  </main>
 
-      <div class="project" data-aos="flip-left">
-        <h3>3D Bird Model</h3>
-        <div class="media-box">
-           <img src="Bird_Model.png" alt="Bird Model" loading="lazy" />
-        </div>
-      </div>
+  <footer class="footer">
+    <p>© <span id="year">2026</span> Talha Ahmad — Built with too much coffee.</p>
+    <a href="#top" class="footer__top">Back to top ↑</a>
+  </footer>
 
-      <div class="project" data-aos="flip-left">
-        <h3>Perfume Bottle</h3>
-        <div class="media-box">
-           <img src="Perfume_Model.png" alt="Perfume Bottle Model" loading="lazy" />
-        </div>
-      </div>
-
-      <div class="project" data-aos="flip-left">
-        <h3>Chess Piece</h3>
-        <div class="media-box">
-           <img src="Chess_Piece.png" alt="Chess Piece Model" loading="lazy" />
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="chess-animation" data-aos="fade-up">
-    <h2>Chess Piece Animation</h2>
-    <div class="project-grid">
-      <div class="project" data-aos="zoom-in">
-        <h3>Pawn Showcase Animation</h3>
-        <div class="media-box">
-          <video controls muted preload="metadata" aria-label="Chess pawn showcase">
-            <source src="chess-animation.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="headphone-animation" data-aos="fade-up">
-    <h2>Headphones Animation</h2>
-    <div class="project-grid">
-      <div class="project" data-aos="zoom-in">
-        <h3>Headphone Showcase Animation</h3>
-        <div class="media-box">
-          <video controls muted preload="metadata" aria-label="Headphones showcase">
-            <source src="Headphones Animation.mp4" type="video/mp4" />
-          </video>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" data-aos="fade-up">
-    <h2>Contact</h2>
-    <div class="contact">
-      <p>Email: <a href="mailto:atalha9222@gmail.com">atalha9222@gmail.com</a></p>
-      <p>Phone: <a href="tel:+923336971868">+92 333 6971868</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/talha---ahmad/" target="_blank" rel="noopener">Talha Ahmad</a></p>
-      <p>GitHub: <a href="https://github.com/Talha9222" target="_blank" rel="noopener">Talha9222</a></p>
-    </div>
-  </section>
+  <!-- ================= LIGHTBOX ================= -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Media viewer" hidden>
+    <button class="lightbox__close" id="lightboxClose" aria-label="Close viewer">✕</button>
+    <div class="lightbox__stage" id="lightboxStage"></div>
+  </div>
 </body>
 </html>
-
-
