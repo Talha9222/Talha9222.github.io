@@ -142,6 +142,9 @@ a:hover{ color: var(--amber); }
 
 .nav__actions{ display: flex; gap: 10px; }
 
+/* Resume lives in .nav__actions on desktop; this list item is mobile-only */
+.nav__links-resume{ display: none; }
+
 .nav__progress{
   height: 2px; width: 0%;
   background: linear-gradient(90deg, var(--teal), var(--amber));
@@ -492,8 +495,30 @@ a:hover{ color: var(--amber); }
 }
 .card__media--tall{ aspect-ratio: 4 / 3; }
 
+/* Shimmer placeholder — sits under the video until its first frame is painted.
+   Replaces the .webp posters, so a missing poster file can't leave a black box. */
+.card__media::after{
+  content: "";
+  position: absolute; inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(90deg, transparent, rgba(45,212,191,.06), transparent),
+    var(--surface-2);
+  background-size: 220% 100%, 100% 100%;
+  animation: shimmer 1.5s infinite linear;
+  transition: opacity .45s var(--ease);
+}
+.card__media.is-ready::after{ opacity: 0; animation: none; }
+
+@keyframes shimmer{
+  from{ background-position: -110% 0, 0 0; }
+  to  { background-position: 110% 0, 0 0; }
+}
+
 .card__media video,
 .card__media img{
+  position: relative;
+  z-index: 2;
   width: 100%; height: 100%;
   object-fit: contain;
   transition: transform .5s var(--ease);
@@ -502,6 +527,7 @@ a:hover{ color: var(--amber); }
 
 .card__badge{
   position: absolute; left: 10px; top: 10px;
+  z-index: 3;
   font-family: var(--mono);
   font-size: .68rem;
   letter-spacing: .05em;
@@ -516,6 +542,7 @@ a:hover{ color: var(--amber); }
 
 .card__expand{
   position: absolute; right: 10px; top: 10px;
+  z-index: 3;
   display: grid; place-items: center;
   width: 34px; height: 34px;
   border-radius: 9px;
@@ -656,6 +683,17 @@ a:hover{ color: var(--amber); }
   border-color: var(--teal);
   background: rgba(45,212,191,.05);
 }
+/* Resume gets the warm accent so it reads as the primary action */
+.contact__item--resume{
+  border-color: rgba(251,191,36,.35);
+  background: rgba(251,191,36,.05);
+}
+.contact__item--resume:hover{
+  border-color: var(--amber);
+  background: rgba(251,191,36,.1);
+}
+.contact__item--resume:hover .contact__v{ color: var(--amber); }
+
 .contact__k{
   font-family: var(--mono);
   font-size: .7rem;
@@ -764,6 +802,22 @@ a:hover{ color: var(--amber); }
   }
   .nav__links.is-open{ display: flex; }
   .nav__links a{ padding: 12px 14px; border-radius: var(--r-sm); }
+
+  /* Resume surfaces in the mobile menu, set apart from the section links */
+  .nav__links-resume{
+    display: block;
+    margin-top: 8px;
+    padding-top: 12px;
+    border-top: 1px solid var(--line-soft);
+  }
+  .nav__links-resume a{
+    color: var(--amber);
+    font-weight: 600;
+  }
+  .nav__links-resume a:hover{
+    color: var(--amber);
+    background: rgba(251,191,36,.08);
+  }
 
   .timeline__item{ grid-template-columns: 1fr; gap: 10px; }
 
