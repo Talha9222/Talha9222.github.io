@@ -1,85 +1,228 @@
-// Smooth scroll for in-page anchors
-document.addEventListener("click", (e) => {
-  const a = e.target.closest('a[href^="#"]');
-  if (!a) return;
-  const target = document.querySelector(a.getAttribute("href"));
-  if (target) {
-    e.preventDefault();
-    target.scrollIntoView({ behavior: "smooth" });
-  }
-});
-
+/* =========================================================
+   TALHA AHMAD — PORTFOLIO
+   No external deps. Native APIs only.
+   ========================================================= */
 document.addEventListener("DOMContentLoaded", () => {
-  // Initialize AOS (if library loaded)
-  if (window.AOS) {
-    AOS.init({ duration: 1000, offset: 100, once: true });
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---------- Footer year ---------- */
+  const year = document.getElementById("year");
+  if (year) year.textContent = new Date().getFullYear();
+
+  /* ---------- Scroll reveal ---------- */
+  const revealables = document.querySelectorAll(".reveal");
+  if (reduceMotion) {
+    revealables.forEach((el) => el.classList.add("is-in"));
+  } else {
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-in");
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: "0px 0px -60px 0px" }
+    );
+    revealables.forEach((el) => revealObserver.observe(el));
   }
 
-  // Pause autoplay videos when off-screen (saves CPU)
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(({ isIntersecting, target }) => {
-      const vid = target;
-      if (vid.hasAttribute("autoplay")) {
-        if (isIntersecting) vid.play().catch(() => {});
-        else vid.pause();
-      }
+  /* ---------- Animated stat counter ---------- */
+  document.querySelectorAll(".count").forEach((el) => {
+    const target = Number(el.dataset.to || 0);
+    if (reduceMotion) {
+      el.textContent = target;
+      return;
+    }
+    const counter = new IntersectionObserver(
+      (entries) => {
+        if (!entries[0].isIntersecting) return;
+        counter.disconnect();
+        const duration = 1100;
+        const start = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(target * eased);
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      },
+      { threshold: 0.5 }
+    );
+    counter.observe(el);
+  });
+
+  /* ---------- Nav: stuck state + scroll progress ---------- */
+  const nav = document.getElementById("nav");
+  const progress = document.getElementById("navProgress");
+
+  const onScroll = () => {
+    if (nav) nav.classList.toggle("is-stuck", window.scrollY > 12);
+    if (progress) {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      progress.style.width = `${pct}%`;
+    }
+  };
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  /* ---------- Nav: mobile toggle ---------- */
+  const navToggle = document.getElementById("navToggle");
+  const navLinks = document.getElementById("navLinks");
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener("click", () => {
+      const open = navLinks.classList.toggle("is-open");
+      navToggle.setAttribute("aria-expanded", String(open));
+      navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
     });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll(".media-box video").forEach(v => observer.observe(v));
-
-  // --- Maximize (fullscreen) for Game Dev videos only ---
-  const gameDevVideos = document.querySelectorAll("#game-dev .media-box video");
-  if (gameDevVideos.length) {
-    const reqFS = (el) =>
-      (el.requestFullscreen ||
-       el.webkitRequestFullscreen ||
-       el.webkitEnterFullscreen || // iOS Safari video
-       el.msRequestFullscreen ||
-       el.mozRequestFullScreen)?.call(el);
-
-    const exitFS = () =>
-      (document.exitFullscreen ||
-       document.webkitExitFullscreen ||
-       document.msExitFullscreen ||
-       document.mozCancelFullScreen)?.call(document);
-
-    const toggleFullscreen = (video) => {
-      // If native iOS method exists (webkitEnterFullscreen) and no fullscreenElement,
-      // just call it (exits via system controls)
-      if (!document.fullscreenElement && video.webkitEnterFullscreen) {
-        try { video.webkitEnterFullscreen(); } catch(_) {}
-        return;
+    navLinks.addEventListener("click", (e) => {
+      if (e.target.tagName === "A") {
+        navLinks.classList.remove("is-open");
+        navToggle.setAttribute("aria-expanded", "false");
       }
-      if (!document.fullscreenElement) reqFS(video);
-      else exitFS();
-    };
-
-    gameDevVideos.forEach((video) => {
-      const box = video.closest(".media-box");
-      if (!box) return;
-
-      // Inject expand button
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "expand-btn";
-      btn.setAttribute("aria-label", "Maximize video");
-      btn.setAttribute("title", "Maximize");
-      btn.innerHTML = `
-        <svg viewBox="0 0 24 24" aria-hidden="true">
-          <path fill="currentColor"
-            d="M9 3H3v6h2V6.41l4.29 4.3 1.42-1.42L6.41 5H9V3zm6 0v2h2.59l-4.3 4.29 1.42 1.42L19 6.41V9h2V3h-6zm-6 12-1.42 1.42L9.59 21H7v2h6v-6h-2v2.59L9 15zM19 15l-4.29 4.29 1.42 1.42L19 18.41V21h2v-6h-6v2h2.59L19 15z"/>
-        </svg>
-      `;
-      box.appendChild(btn);
-
-      // Button click -> fullscreen
-      btn.addEventListener("click", () => toggleFullscreen(video));
-
-      // Double-click video -> fullscreen
-      video.addEventListener("dblclick", () => toggleFullscreen(video));
     });
   }
+
+  /* ---------- Nav: scroll spy ---------- */
+  const sections = ["work", "games", "art", "contact"]
+    .map((id) => document.getElementById(id))
+    .filter(Boolean);
+
+  const linkFor = (id) => document.querySelector(`.nav__links a[href="#${id}"]`);
+
+  const spy = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const link = linkFor(entry.target.id);
+        if (!link) return;
+        if (entry.isIntersecting) {
+          document.querySelectorAll(".nav__links a").forEach((a) => a.classList.remove("is-active"));
+          link.classList.add("is-active");
+        }
+      });
+    },
+    { rootMargin: "-45% 0px -50% 0px" }
+  );
+  sections.forEach((s) => spy.observe(s));
+
+  /* ---------- Project filters ---------- */
+  const chips = document.querySelectorAll(".chip");
+  const gameCards = document.querySelectorAll("#gameGrid .card");
+
+  chips.forEach((chip) => {
+    chip.addEventListener("click", () => {
+      const filter = chip.dataset.filter;
+
+      chips.forEach((c) => {
+        c.classList.remove("is-active");
+        c.setAttribute("aria-selected", "false");
+      });
+      chip.classList.add("is-active");
+      chip.setAttribute("aria-selected", "true");
+
+      gameCards.forEach((card) => {
+        const tags = (card.dataset.tags || "").split(/\s+/);
+        const show = filter === "all" || tags.includes(filter);
+        card.classList.toggle("is-hidden", !show);
+      });
+    });
+  });
+
+  /* ---------- Videos: play on hover / in-view, pause otherwise ----------
+     Autoplaying 12 videos at once is what makes portfolio pages feel heavy.
+     Cards only play while hovered (desktop) or while centered in view (touch). */
+  const isTouch = window.matchMedia("(hover: none)").matches;
+  const cardVideos = document.querySelectorAll(".card__media video");
+
+  const safePlay = (v) => v.play().catch(() => {});
+
+  if (isTouch) {
+    const vidObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(({ isIntersecting, target }) => {
+          isIntersecting ? safePlay(target) : target.pause();
+        });
+      },
+      { threshold: 0.55 }
+    );
+    cardVideos.forEach((v) => vidObserver.observe(v));
+  } else {
+    cardVideos.forEach((video) => {
+      const card = video.closest(".card");
+      if (!card) return;
+      card.addEventListener("mouseenter", () => safePlay(video));
+      card.addEventListener("mouseleave", () => {
+        video.pause();
+        video.currentTime = 0;
+      });
+    });
+  }
+
+  /* ---------- Lightbox ---------- */
+  const lightbox = document.getElementById("lightbox");
+  const stage = document.getElementById("lightboxStage");
+  const closeBtn = document.getElementById("lightboxClose");
+  let lastFocused = null;
+
+  const openLightbox = (src) => {
+    if (!lightbox || !stage || !src) return;
+    lastFocused = document.activeElement;
+    stage.innerHTML = "";
+
+    if (/\.(mp4|webm|mov)$/i.test(src)) {
+      const v = document.createElement("video");
+      v.src = src;
+      v.controls = true;
+      v.autoplay = true;
+      v.loop = true;
+      v.playsInline = true;
+      stage.appendChild(v);
+    } else {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "";
+      stage.appendChild(img);
+    }
+
+    lightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+    closeBtn?.focus();
+  };
+
+  const closeLightbox = () => {
+    if (!lightbox || !stage) return;
+    lightbox.hidden = true;
+    stage.innerHTML = "";
+    document.body.style.overflow = "";
+    lastFocused?.focus();
+  };
+
+  // Expand buttons on cards
+  document.querySelectorAll(".card__expand").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const src = btn.closest("[data-media]")?.dataset.media;
+      openLightbox(src);
+    });
+  });
+
+  // Whole-card click (skip real links)
+  document.querySelectorAll(".card[data-media], .still[data-media]").forEach((el) => {
+    el.addEventListener("click", (e) => {
+      if (e.target.closest("a") || e.target.closest("button")) return;
+      openLightbox(el.dataset.media);
+    });
+  });
+
+  closeBtn?.addEventListener("click", closeLightbox);
+  lightbox?.addEventListener("click", (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && lightbox && !lightbox.hidden) closeLightbox();
+  });
 });
-
-console.log("🚀 Portfolio script loaded!");
