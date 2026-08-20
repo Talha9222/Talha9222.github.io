@@ -403,6 +403,21 @@ a:hover{ color: var(--amber); }
 }
 .timeline__body p{ color: var(--muted); max-width: 62ch; }
 
+.tag-inline{
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 8px;
+  font-family: var(--mono);
+  font-size: .66rem;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: rgba(11,13,16,.5);
+  border: 1px solid var(--line);
+  color: var(--faint);
+}
+
 /* Tags */
 .tags{
   list-style: none;
